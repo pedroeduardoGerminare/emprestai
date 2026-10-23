@@ -1,7 +1,7 @@
 # Estado em 23/out/2026
-- T1 da spec 001 concluída; CA-01: base Next, TS strict, Tailwind, Open Sans e Nocturne.
-- Git inicializado na pasta superior, branch main; commit inicial: "Cria base Next.js e tema Nocturne (T1)".
-- Testes: 9 passed (9). Typecheck aprovado. Build Next aprovado.
+- T1 e T2 da spec 001 concluídas; CA-01 e CA-12: base Next e componentes Nocturne.
+- Branch main; T1 em 63b740d. Commit desta tarefa: "Cria componentes Nocturne acessíveis (T2)".
+- Testes: 17 passed (17). Typecheck aprovado. Build Next aprovado.
 - Atalhos npx dos pacotes falharam no caminho Windows; scripts npm usam node diretamente e passaram.
 - Página `/` é base visual; não é a tela de login final. index.html segue como referência histórica.
 - Nenhuma migration, alteração de banco local ou remoto foi feita.
@@ -12,4 +12,6 @@
 - Respeitar a regra de uma tarefa por vez e parar após validar cada tarefa.
 - Não gerar migration antes de apresentar o DDL e obter aprovação (rules/migration.md).
 - Não versionar .env, node_modules ou .next; .gitignore validado para .env.
-- Próximo passo: executar T2 da spec 001; apresentar DDL antes da tarefa de banco.
+- T2: componentes em src/components/ui; diálogo Radix, controles de teclado e indicadores sem style inline.
+- Não houve comparação visual das telas; componentes ainda não estão integrados nelas.
+- Próximo passo: executar T3 da spec 001 (shell); apresentar DDL antes da tarefa de banco.

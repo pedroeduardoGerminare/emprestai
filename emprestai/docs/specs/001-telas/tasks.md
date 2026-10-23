@@ -3,7 +3,7 @@
 Uma tarefa = um commit. Não começar a seguinte sem o check da atual.
 
 - [x] **T1** Scaffold Next (App Router) + TS strict + Tailwind + Open Sans + tema com tokens do `layout.md`. Sem Prisma/tRPC. **CA-01** — 23/out/2026: 9 testes de contraste aprovados, typecheck e build aprovados.
-- [ ] **T2** Variantes shadcn: botões §5.1, pill, chip, input, tabela, diálogo, segmentos, barras. Foco e `prefers-reduced-motion`. **CA-01 CA-12**
+- [x] **T2** Variantes shadcn: botões §5.1, pill, chip, input, tabela, diálogo, segmentos, barras. Foco e `prefers-reduced-motion`. **CA-01 CA-12** — 23/out/2026: 17 testes aprovados, typecheck e build aprovados. Comparação visual nas telas pendente das próximas tarefas.
 - [ ] **T3** Shell: sidebar 236px, grupos, item ativo fill, header 64px, bloco de usuário Marina. **CA-03**
 - [ ] **T4** Rota `/login` (e `/` → login) com copy da spec; submit → `/catalogo`. **CA-02**
 - [ ] **T5** Módulo mock (equipamentos, pessoas, empréstimos, `currentUserId`) + página `/catalogo` 3×2 e três estados. **CA-04 CA-11**

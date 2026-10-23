@@ -4,7 +4,7 @@ Sistema interno de empréstimo de equipamentos. A aplicação fica nesta pasta; 
 
 ## Estado atual
 
-Tarefa T1 da spec 001 concluída: Next.js App Router, TypeScript strict, Tailwind, Open Sans e tema Nocturne escuro. A rota `/` mostra a base visual, sem login ou persistência. `index.html` é somente a referência histórica do protótipo e não é servido pelo Next.
+Tarefas T1 e T2 da spec 001 concluídas: base Next.js e componentes Nocturne em `src/components/ui/` (botões, pills, chips, campos, tabela, diálogo, controle segmentado e indicadores). A rota `/` mostra a base visual, sem login ou persistência. `index.html` é somente a referência histórica do protótipo e não é servido pelo Next.
 
 ## Comandos verificados
 

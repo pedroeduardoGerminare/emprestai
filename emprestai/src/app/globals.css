@@ -82,7 +82,24 @@
   button:disabled { opacity: .45; cursor: not-allowed; }
 }
 
+@layer components {
+  .deadline-progress { appearance: none; background: var(--color-border-frame); border: 0; }
+  .deadline-progress::-webkit-progress-bar { background: var(--color-border-frame); border-radius: 99px; }
+  .deadline-progress::-webkit-progress-value { background: var(--color-accent-500); border-radius: 99px; transition: width 240ms ease-out; }
+  .deadline-progress::-moz-progress-bar { background: var(--color-accent-500); border-radius: 99px; }
+  .dialog-overlay[data-state="open"] { animation: dialog-fade-in 180ms cubic-bezier(.2,.8,.2,1); }
+  .dialog-overlay[data-state="closed"] { animation: dialog-fade-out 120ms ease-in; }
+  .dialog-content[data-state="open"] { animation: dialog-enter 180ms cubic-bezier(.2,.8,.2,1); }
+  .dialog-content[data-state="closed"] { animation: dialog-leave 120ms ease-in; }
+}
+
+@keyframes dialog-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes dialog-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes dialog-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes dialog-leave { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(6px); } }
+
 @media (prefers-reduced-motion: reduce) {
+  .deadline-progress::-webkit-progress-value { transition: none !important; }
   *, *::before, *::after {
     animation: none !important;
     transition: none !important;
