@@ -4,13 +4,14 @@
 - Usuário autorizou concluir as quatro entregas em sequência, sem pausas por tarefa.
 - Login demonstrativo em / e /login; sem autenticar ou enviar credenciais.
 - 28 testes, typecheck e build aprovados; conferência visual local realizada.
-- Git na pasta superior, main; GitHub privado pedroeduardoGerminare/emprestai criado; push em andamento.
+- Git na pasta superior, main; GitHub privado pedroeduardoGerminare/emprestai criado e push confirmado.
 - Supabase zvemdkmoagksupyyosuk criado em sa-east-1, organização ProjetosVibeCoding.
 - Custo US$ 0/mês e DDL completo aprovados explicitamente.
 - Oito tabelas com RLS aplicadas; suporte_ti e cinco categorias confirmados.
 - Migration Prisma 20261023122556_initial_schema; baseline remoto registrado.
 - Postgres local Docker emprestai-schema-local em 127.0.0.1:54329; reset e seed repetido aprovados.
-- Vercel prj_gnzfZaoGZf2C9QDrlsuQN4TotM0N criado; publicação e vínculo GitHub em verificação.
-- Usuário conectou GitHub à Vercel; conector ainda apresenta restrição de escopo.
+- Vercel prj_gnzfZaoGZf2C9QDrlsuQN4TotM0N; produção READY dpl_4rnAuQVWxBLMwTN4TVyLjuH8sf9t.
+- URL https://emprestai-eta.vercel.app verificada no navegador, inclusive validação do formulário.
+- Publicação direta do commit 47edf1a. GitHub conectado à conta; vínculo do projeto ainda pendente.
 - Detalhes em docs/infraestrutura.md. Nenhum segredo versionado.
-- Próximo passo: concluir push e deployment e registrar links verificados.
+- Próximo passo opcional: vincular o repo no Vercel Settings → Git; demais entregas concluídas.

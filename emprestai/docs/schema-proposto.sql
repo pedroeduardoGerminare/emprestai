@@ -1,4 +1,5 @@
--- DDL COMPLETO PARA APROVAÇÃO. Não aplicado. Prisma Migrate gerará o histórico.
+-- DDL aprovado em 23/out/2026. Modelo aplicado no novo Supabase.
+-- Fonte executável definitiva: prisma/migrations/20261023122556_initial_schema/migration.sql.
 -- Banco novo e vazio; nenhuma linha existente será alterada ou excluída.
 CREATE TYPE "MembershipRole" AS ENUM ('collaborator', 'admin');
 CREATE TYPE "EquipmentState" AS ENUM ('available', 'maintenance', 'retired');

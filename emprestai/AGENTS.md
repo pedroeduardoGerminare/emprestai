@@ -1,5 +1,9 @@
 # EmpresTI
 
+## Escopo confirmado em 23/out/2026
+
+O usuário restringiu esta entrega à página inicial, modelagem Supabase, GitHub/main e Vercel, sem MVP, e autorizou concluir tudo em sequência sem pausas por tarefa. Spec ativa: docs/specs/002-infraestrutura. Não executar T3–T10 da spec 001. Organização, custo zero e DDL completo foram aprovados. Ver docs/infraestrutura.md e handoff.md para os links e o estado atual, que substituem as notas históricas abaixo.
+
 Sistema interno de empréstimo de equipamentos (notebooks, monitores, cabos, câmeras).
 Serve a colaboradores (catálogo, pedido, devolução) e a Operações (cadastro e balcão).
 Negócio em docs/PRD.md. Stack decidida em docs/adr/001-stack.md.

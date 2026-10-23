@@ -56,9 +56,14 @@ Para comandos Prisma nesta máquina, exportar DATABASE_URL e DIRECT_URL do .env.
 
 - Projeto criado: emprestai (prj_gnzfZaoGZf2C9QDrlsuQN4TotM0N).
 - Framework: Next.js. Diretório raiz: emprestai. Node: 24.x. Build: npm run build.
-- Publicação e vínculo GitHub: em verificação; os dados finais serão registrados após confirmar o deployment.
+- Site público: https://emprestai-eta.vercel.app (abriu sem autenticação; formulário validado no navegador).
+- Deployment de produção READY: dpl_4rnAuQVWxBLMwTN4TVyLjuH8sf9t, código do commit 47edf1a.
+- Publicação feita pelo conector com os arquivos da aplicação e lockfile. Nenhum arquivo .env foi enviado.
+- Vínculo automático GitHub ainda pendente: o conector não encontrou o repositório privado e não conseguiu solicitar acesso ao escopo da equipe. O usuário informou que conectou a conta GitHub, mas a vinculação do projeto não foi confirmada.
+- Para concluir: https://vercel.com/aaaa1-5bce/emprestai/settings/git → Connect Git Repository → pedroeduardoGerminare/emprestai. Se ausente, configurar o GitHub App da Vercel para permitir somente esse repositório. Confirmar Production Branch main e Root Directory emprestai.
+- Conectar a conta GitHub não equivale a vincular o projeto ao repositório. Até esse vínculo ser confirmado, push na main não implica deploy automático.
 - A política CSP usa nonce por requisição, sem unsafe-inline; a fonte e os ícones são servidos pelo próprio app.
 
 ## Resultado da validação local
 
-28 testes passaram; TypeScript e build aprovados. Migration aplicada do zero e seed executado duas vezes sem duplicar dados. Conferência remota confirmou RLS nas oito tabelas e o seed suporte_ti com cinco categorias.
+28 testes passaram; TypeScript e build aprovados. Migration aplicada do zero e seed executado duas vezes sem duplicar dados. Conferência remota confirmou RLS nas oito tabelas e o seed suporte_ti com cinco categorias. Página pública e validação do formulário confirmadas no navegador. HTTP local 200; todos os dez scripts emitidos pelo Next receberam nonce CSP.
