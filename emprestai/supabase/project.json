@@ -1,0 +1,9 @@
+{
+  "name": "emprestai",
+  "projectRef": "zvemdkmoagksupyyosuk",
+  "organizationId": "embunmynjqkwxzpxrsqm",
+  "region": "sa-east-1",
+  "dashboardUrl": "https://supabase.com/dashboard/project/zvemdkmoagksupyyosuk",
+  "apiUrl": "https://zvemdkmoagksupyyosuk.supabase.co",
+  "schemaOwner": "Prisma Migrate"
+}

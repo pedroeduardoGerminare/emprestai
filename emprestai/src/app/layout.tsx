@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 
 const openSans = Open_Sans({
@@ -15,7 +16,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  // Request rendering lets Next attach the proxy's nonce to its own inline scripts.
+  await headers();
   return (
     <html lang="pt-BR" className={openSans.variable}>
       <body>{children}</body>

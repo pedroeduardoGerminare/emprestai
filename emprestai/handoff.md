@@ -1,17 +1,16 @@
-# Estado em 23/out/2026
-- T1 e T2 da spec 001 concluídas; CA-01 e CA-12: base Next e componentes Nocturne.
-- Branch main; T1 em 63b740d. Commit desta tarefa: "Cria componentes Nocturne acessíveis (T2)".
-- Testes: 17 passed (17). Typecheck aprovado. Build Next aprovado.
-- Atalhos npx dos pacotes falharam no caminho Windows; scripts npm usam node diretamente e passaram.
-- Página `/` é base visual; não é a tela de login final. index.html segue como referência histórica.
-- Nenhuma migration, alteração de banco local ou remoto foi feita.
-- Nada publicado; GitHub, Vercel e novo Supabase ainda não criados.
-- Usuário aprovou organização Supabase ProjetosVibeCoding e modelagem conceitual collaborator/admin.
-- Usuário mandou seguir a stack: não publicar HTML avulso.
-- Pedido original autoriza Supabase remoto, deploy Vercel e push direto na main.
-- Respeitar a regra de uma tarefa por vez e parar após validar cada tarefa.
-- Não gerar migration antes de apresentar o DDL e obter aprovação (rules/migration.md).
-- Não versionar .env, node_modules ou .next; .gitignore validado para .env.
-- T2: componentes em src/components/ui; diálogo Radix, controles de teclado e indicadores sem style inline.
-- Não houve comparação visual das telas; componentes ainda não estão integrados nelas.
-- Próximo passo: executar T3 da spec 001 (shell); apresentar DDL antes da tarefa de banco.
+# Estado — 23/out/2026
+- Escopo: somente página inicial, modelagem Supabase, GitHub e Vercel; sem MVP.
+- Spec ativa: docs/specs/002-infraestrutura. Não executar T3–T10 da spec 001.
+- Usuário autorizou concluir as quatro entregas em sequência, sem pausas por tarefa.
+- Login demonstrativo em / e /login; sem autenticar ou enviar credenciais.
+- 28 testes, typecheck e build aprovados; conferência visual local realizada.
+- Git na pasta superior, main; GitHub privado pedroeduardoGerminare/emprestai criado; push em andamento.
+- Supabase zvemdkmoagksupyyosuk criado em sa-east-1, organização ProjetosVibeCoding.
+- Custo US$ 0/mês e DDL completo aprovados explicitamente.
+- Oito tabelas com RLS aplicadas; suporte_ti e cinco categorias confirmados.
+- Migration Prisma 20261023122556_initial_schema; baseline remoto registrado.
+- Postgres local Docker emprestai-schema-local em 127.0.0.1:54329; reset e seed repetido aprovados.
+- Vercel prj_gnzfZaoGZf2C9QDrlsuQN4TotM0N criado; publicação e vínculo GitHub em verificação.
+- Usuário conectou GitHub à Vercel; conector ainda apresenta restrição de escopo.
+- Detalhes em docs/infraestrutura.md. Nenhum segredo versionado.
+- Próximo passo: concluir push e deployment e registrar links verificados.

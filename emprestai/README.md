@@ -1,26 +1,19 @@
 # EmpresTI
 
-Sistema interno de empréstimo de equipamentos. A aplicação fica nesta pasta; o repositório Git começa na pasta superior.
+Página inicial e infraestrutura para o futuro sistema de empréstimo de equipamentos. Esta entrega não é um MVP: o formulário é demonstrativo e não envia credenciais. Não existem catálogo ou operações publicados.
 
-## Estado atual
+Aplicação Next.js em / e /login, TypeScript strict, Tailwind, shadcn restilizado com Nocturne, Open Sans e Phosphor. O index.html antigo é referência e não é servido pelo Next.
 
-Tarefas T1 e T2 da spec 001 concluídas: base Next.js e componentes Nocturne em `src/components/ui/` (botões, pills, chips, campos, tabela, diálogo, controle segmentado e indicadores). A rota `/` mostra a base visual, sem login ou persistência. `index.html` é somente a referência histórica do protótipo e não é servido pelo Next.
+## Executar
 
-## Comandos verificados
+Na pasta emprestai/, com Node 24: npm.cmd install, npm.cmd run build, npm.cmd run start. Para desenvolver: npm.cmd run dev. Scripts usam Node diretamente para funcionar neste caminho Windows.
 
-Na pasta `emprestai/`:
+## Verificar
 
-```powershell
-npm.cmd install --no-fund --no-audit
-npm.cmd test
-npm.cmd run typecheck
-npm.cmd run build
-```
+npm.cmd test, npm.cmd run typecheck, npm.cmd run build. Testes de banco precisam do Docker e usam Testcontainers sem acessar o Supabase remoto.
 
-Os scripts chamam os executáveis JavaScript diretamente para evitar falha dos atalhos de pacote no caminho Windows desta máquina. Build validado com Node 24.19.0. As dependências estão fixadas em package-lock.json. O build baixa a Open Sans e a hospeda junto da aplicação.
+## Banco e publicação
 
-## Próximas etapas
+Modelo: prisma/schema.prisma. Histórico: prisma/migrations/. Seed: prisma/seed.ts. Identificação do Supabase: supabase/project.json; configuração local: supabase/config.toml.
 
-Seguir `docs/specs/001-telas/tasks.md`. Banco e publicação estão descritos em `docs/plano-publicacao.md`; a modelagem conceitual foi aprovada, mas o DDL ainda precisa de revisão antes de gerar migrations. GitHub, Supabase novo e Vercel ainda não foram criados.
-
-Segredos de `.env` são ignorados pelo Git. A base visual não lê variáveis de ambiente nem acessa o projeto Supabase antigo.
+Configuração completa e links em [docs/infraestrutura.md](docs/infraestrutura.md). Segredos são ignorados pelo Git. A página não precisa de variáveis de banco na Vercel.

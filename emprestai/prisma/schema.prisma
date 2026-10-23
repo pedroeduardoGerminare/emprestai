@@ -1,0 +1,147 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum MembershipRole {
+  collaborator
+  admin
+}
+
+enum EquipmentState {
+  available
+  maintenance
+  retired
+}
+
+model Tenant {
+  id          String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug        String            @unique
+  name        String
+  createdAt   DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  memberships Membership[]
+  categories  Category[]
+  equipment   Equipment[]
+  loans       Loan[]
+  auditEvents AuditEvent[]
+  rateLimits  RateLimitBucket[]
+
+  @@map("tenants")
+}
+
+// auth.users is owned by Supabase; its FK is added in migration SQL.
+model Profile {
+  userId      String       @id @map("user_id") @db.Uuid
+  displayName String       @map("display_name")
+  department  String?
+  createdAt   DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  memberships Membership[]
+
+  @@map("profiles")
+}
+
+model Membership {
+  tenantId      String         @map("tenant_id") @db.Uuid
+  userId        String         @map("user_id") @db.Uuid
+  role          MembershipRole @default(collaborator)
+  tenant        Tenant         @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  profile       Profile        @relation(fields: [userId], references: [userId], onDelete: Restrict)
+  borrowedLoans Loan[]         @relation("Borrower")
+  returnedLoans Loan[]         @relation("ReturnActor")
+  auditEvents   AuditEvent[]
+
+  @@id([tenantId, userId])
+  @@index([userId, tenantId])
+  @@map("memberships")
+}
+
+model Category {
+  id        String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId  String      @map("tenant_id") @db.Uuid
+  name      String
+  tenant    Tenant      @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  equipment Equipment[]
+
+  @@unique([tenantId, id])
+  @@unique([tenantId, name])
+  @@map("categories")
+}
+
+model Equipment {
+  id             String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String         @map("tenant_id") @db.Uuid
+  categoryId     String         @map("category_id") @db.Uuid
+  assetTag       String         @map("asset_tag")
+  name           String
+  serialNumber   String?        @map("serial_number")
+  pickupLocation String         @map("pickup_location")
+  description    String?
+  notes          String?
+  state          EquipmentState @default(available)
+  createdAt      DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime       @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  tenant         Tenant         @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  category       Category       @relation(fields: [tenantId, categoryId], references: [tenantId, id], onDelete: Restrict)
+  loans          Loan[]
+
+  @@unique([tenantId, id])
+  @@unique([tenantId, assetTag])
+  @@index([tenantId, categoryId])
+  @@index([tenantId, state])
+  @@map("equipment")
+}
+
+model Loan {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String      @map("tenant_id") @db.Uuid
+  equipmentId String      @map("equipment_id") @db.Uuid
+  borrowerId  String      @map("borrower_id") @db.Uuid
+  borrowedAt  DateTime    @default(now()) @map("borrowed_at") @db.Timestamptz(6)
+  dueAt       DateTime    @default(dbgenerated("(CURRENT_TIMESTAMP + interval '14 days')")) @map("due_at") @db.Timestamptz(6)
+  returnedAt  DateTime?   @map("returned_at") @db.Timestamptz(6)
+  returnedBy  String?     @map("returned_by") @db.Uuid
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  equipment   Equipment   @relation(fields: [tenantId, equipmentId], references: [tenantId, id], onDelete: Restrict)
+  borrower    Membership  @relation("Borrower", fields: [tenantId, borrowerId], references: [tenantId, userId], onDelete: Restrict)
+  returnActor Membership? @relation("ReturnActor", fields: [tenantId, returnedBy], references: [tenantId, userId], onDelete: Restrict)
+
+  @@index([tenantId, borrowerId, returnedAt])
+  @@index([tenantId, returnedBy])
+  @@index([tenantId, returnedAt, dueAt])
+  @@index([tenantId, equipmentId])
+  @@map("loans")
+}
+
+model AuditEvent {
+  id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String      @map("tenant_id") @db.Uuid
+  actorId      String?     @map("actor_id") @db.Uuid
+  action       String
+  resourceType String      @map("resource_type")
+  resourceId   String?     @map("resource_id") @db.Uuid
+  metadata     Json        @default("{}")
+  createdAt    DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  tenant       Tenant      @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  actor        Membership? @relation(fields: [tenantId, actorId], references: [tenantId, userId], onDelete: Restrict)
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, actorId])
+  @@map("audit_events")
+}
+
+model RateLimitBucket {
+  tenantId     String   @map("tenant_id") @db.Uuid
+  subjectHash  String   @map("subject_hash")
+  windowStart  DateTime @map("window_start") @db.Timestamptz(6)
+  requestCount Int      @default(0) @map("request_count")
+  tenant       Tenant   @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  @@id([tenantId, subjectHash, windowStart])
+  @@index([windowStart])
+  @@map("rate_limit_buckets")
+}

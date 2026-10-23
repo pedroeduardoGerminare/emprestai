@@ -83,6 +83,9 @@
 }
 
 @layer components {
+  .login-hero { background: linear-gradient(160deg,#001449 0%,#00102F 60%,#080C1A 100%); }
+  .brand-rule { background: linear-gradient(to right,#3C5DBE,rgba(60,93,190,0)); }
+  .support-rule { background: linear-gradient(to right,rgba(230,234,246,0),#222C4A 48px,#222C4A calc(100% - 48px),rgba(230,234,246,0)); }
   .deadline-progress { appearance: none; background: var(--color-border-frame); border: 0; }
   .deadline-progress::-webkit-progress-bar { background: var(--color-border-frame); border-radius: 99px; }
   .deadline-progress::-webkit-progress-value { background: var(--color-accent-500); border-radius: 99px; transition: width 240ms ease-out; }
