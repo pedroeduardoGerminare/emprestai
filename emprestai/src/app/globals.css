@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-open-sans), system-ui, sans-serif;
+}
+
+@theme {
+  --color-page: #05070F;
+  --color-bg: #080C1A;
+  --color-sidebar: #060A16;
+  --color-surface: #0E1530;
+  --color-sunken: #0B1128;
+  --color-text: #E6EAF6;
+  --color-text-muted: #8A93B2;
+  --color-text-dim: #7C86A2;
+  --color-text-faint: #5E6884;
+  --color-text-ghost: #454E68;
+  --color-border-frame: #222C4A;
+  --color-border-card: #1F2949;
+  --color-border-soft: #1A2340;
+  --color-border-row: #161D33;
+  --color-border-strong: #2B3450;
+  --color-accent-100: #EEF2FE;
+  --color-accent-200: #D6E0FB;
+  --color-accent-300: #B4C6F6;
+  --color-accent-400: #8AA6EE;
+  --color-accent-500: #5B7FE0;
+  --color-accent-600: #3C5DBE;
+  --color-accent-700: #25408F;
+  --color-accent-800: #132663;
+  --color-accent-900: #001449;
+  --color-available: #5FD3AA;
+  --color-available-bg: rgb(63 185 140 / 12%);
+  --color-available-border: rgb(63 185 140 / 35%);
+  --color-borrowed: #9AA3BC;
+  --color-borrowed-bg: #1A2340;
+  --color-borrowed-border: #2B3450;
+  --color-maintenance: #E8B961;
+  --color-maintenance-bg: rgb(224 163 63 / 12%);
+  --color-maintenance-border: rgb(224 163 63 / 35%);
+  --color-overdue: #F0A0A5;
+  --color-overdue-label: #E08A90;
+  --color-overdue-bg: rgb(224 91 98 / 5%);
+  --color-overdue-border: rgb(224 91 98 / 40%);
+  --color-neutral-100: #F2F4FA;
+  --color-neutral-200: #DFE3EE;
+  --color-neutral-300: #C4CADB;
+  --color-neutral-400: #9AA3BC;
+  --color-neutral-500: #7C86A2;
+  --color-neutral-600: #5E6884;
+  --color-neutral-700: #454E68;
+  --color-neutral-800: #2B3450;
+  --color-neutral-900: #161D33;
+  --shadow-sm: 0 0 0 1px #222C4A;
+  --shadow-md: 0 0 0 1px #2B3450, 0 6px 18px rgb(0 0 0 / 55%);
+  --shadow-lg: 0 0 0 1px #454E68, 0 18px 44px rgb(0 0 0 / 70%);
+  --radius-screen: 14px;
+  --radius-card: 12px;
+  --radius-stat: 11px;
+  --radius-user: 10px;
+  --radius-icon: 9px;
+  --radius-control: 8px;
+  --radius-compact: 7px;
+  --radius-pill: 99px;
+}
+
+@layer base {
+  :root { color-scheme: dark; }
+  body {
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+  }
+  h1, h2, h3 { font-weight: 600; letter-spacing: -.01em; }
+  p { text-wrap: pretty; }
+  :focus-visible { outline: 2px solid var(--color-accent-500); outline-offset: 2px; }
+  a { color: var(--color-accent-400); text-decoration: none; }
+  a:hover { color: var(--color-accent-300); }
+  button, input, select, textarea { font: inherit; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

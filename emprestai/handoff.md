@@ -1,0 +1,15 @@
+# Estado em 23/out/2026
+- T1 da spec 001 concluída; CA-01: base Next, TS strict, Tailwind, Open Sans e Nocturne.
+- Git inicializado na pasta superior, branch main; commit inicial: "Cria base Next.js e tema Nocturne (T1)".
+- Testes: 9 passed (9). Typecheck aprovado. Build Next aprovado.
+- Atalhos npx dos pacotes falharam no caminho Windows; scripts npm usam node diretamente e passaram.
+- Página `/` é base visual; não é a tela de login final. index.html segue como referência histórica.
+- Nenhuma migration, alteração de banco local ou remoto foi feita.
+- Nada publicado; GitHub, Vercel e novo Supabase ainda não criados.
+- Usuário aprovou organização Supabase ProjetosVibeCoding e modelagem conceitual collaborator/admin.
+- Usuário mandou seguir a stack: não publicar HTML avulso.
+- Pedido original autoriza Supabase remoto, deploy Vercel e push direto na main.
+- Respeitar a regra de uma tarefa por vez e parar após validar cada tarefa.
+- Não gerar migration antes de apresentar o DDL e obter aprovação (rules/migration.md).
+- Não versionar .env, node_modules ou .next; .gitignore validado para .env.
+- Próximo passo: executar T2 da spec 001; apresentar DDL antes da tarefa de banco.
