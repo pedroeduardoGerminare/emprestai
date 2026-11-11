@@ -2,15 +2,16 @@
 
 ## Estado atualizado — 11/nov/2026
 
-Nova publicação autorizada: https://emprestai-five.vercel.app , equipe pessoal pedroeduardonascimento17-4822, GitHub conectado. Produção atual ainda é login inicial da main; funcionalidades reais estão na branch codex/aula11-pratica-subagentes até dados/configuração estarem prontos. Vercel MCP reautenticado pessoal; Supabase reautenticado somente leitura. Nenhuma escrita remota pelo agente.
+Nova publicação autorizada: https://emprestai-five.vercel.app, equipe pessoal pedroeduardonascimento17-4822, GitHub conectado. Produção ainda é login inicial da main; funcionalidades reais estão na branch codex/aula11-pratica-subagentes até dados/configuração estarem prontos. Vercel MCP foi reautenticado pessoalmente, mas as ferramentas desta conversa ainda retornam 404 para o novo projeto. Supabase zvemdkmoagksupyyosuk está visível na organização ProjetosVibeCoding; estava pausado e sua restauração foi iniciada. Nenhuma migration, seed, upload ou usuário remoto foi escrito.
 
 Implementação local: Auth SSR/tRPC, catálogo, solicitar e meus empréstimos, migration imagem e seed idempotente. Última suíte60 testes/10 arquivos passou; build Webpack completo com TypeScript passou após correções da revisão. Detalhes docs/verificacao-pratica.md. Sharp e DDL aprovados; TI0010 manutenção; retirada Balcão de Operações conforme spec001.
 
-Fotos8 aprovadas/4 bloqueadas; usuário manteve restrições. Produção funcional, conta professor,12 fotos e tag final pendentes. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
+Fotos8 aprovadas/4 bloqueadas; usuário manteve restrições. Conta professor,12 fotos, provisionamento humano, ambiente runtime Vercel, validação ponta a ponta e tag final pendentes. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
 
 ## Links
 - Repositório: https://github.com/pedroeduardoGerminare/emprestai
-- Produção existente: https://emprestai-eta.vercel.app
+- Produção criada nesta atividade: https://emprestai-five.vercel.app
+- Produção histórica: https://emprestai-eta.vercel.app
 
 Não há tag final desta prática. A produção histórica não representa ainda as specs 003/004.
 
@@ -24,23 +25,23 @@ Não há tag final desta prática. A produção histórica não representa ainda
 | Senha no seed | Proibição de segredos no código/Git | Usar variável privada; conta não documentada no README por pedido explícito. |
 | Supabase CLI reset nos checks | ADR: Prisma único dono de migrations | Checks corrigidos no commit 650f1f3. |
 
-## 1b. Lacunas
+## 1b. Decisões resolvidas e lacunas
 
-TI-0010, local de retirada, aprovação de sharp e DDL image_url permanecem pendentes. O PRD não decide a situação de um patrimônio individual. Alternativas e dependências estão na spec 003; não foram inventadas respostas.
+TI-0010 segue a lista de equipamentos e fica em manutenção; retirada no Balcão de Operações, conforme spec 001. O usuário aprovou Sharp e DDL nullable `image_url`. Permanecem pendentes quatro fotos compatíveis e a execução humana remota. Ver `emprestai/docs/specs/003-dados-iniciais/tasks.md`.
 
 ## 2. Onde o agente tentou decidir
 
-O plano inicial sugeriu manter o PRD para regras conflitantes. O usuário confirmou limite/prazo; para TI-0010 essa orientação não resolve a situação, pois o PRD não contém estados individuais. A implementação não deve converter a sugestão em aprovação inexistente.
+O usuário definiu que o PRD prevalece para limite de três itens e prazo de 14 dias corridos. Para TI-0010, pediu seguir a lista de equipamentos; ele fica em manutenção.
 
 ## 3. Decisão técnica e ADR
 
-Troca Pexels → Pixabay foi exigência explícita do usuário e registrada na skill/spec. Não foi escrito ADR pelo agente, respeitando a autoridade do time. Sharp e coluna de imagem foram propostas separadamente e aguardam aprovação.
+Troca Pexels → Pixabay foi exigência explícita do usuário e registrada na skill/spec. Não foi escrito ADR pelo agente, respeitando a autoridade do time. Sharp e coluna de imagem foram aprovadas; migration aplicada apenas em Postgres local descartável.
 
 ## 4. Skill imagens-equipamentos
 
-SKILL.md contém fluxo e limites; references/contrato.md registra condições do fornecedor; scripts/pipeline.mjs implementa cache, origem permitida, revisão obrigatória, unicidade e preparo. Testes negativos passaram. Dimensões dependem de executar prepare com sharp aprovado; não foram declaradas comprovadas ainda. Revisão visual continua necessária. Não existe upload nessa skill.
+`SKILL.md` contém fluxo e limites; `references/contrato.md` registra condições do fornecedor; `scripts/pipeline.mjs` implementa cache, origem permitida, revisão obrigatória, unicidade e preparo. Testes negativos passaram. O preparo final não foi executado porque só 8 fotos foram aprovadas; não existe upload nessa skill.
 
-Chave obtida da sessão autenticada e configurada somente no ambiente local ignorado. Busca real autenticada realizada com cache local. As 12 buscas produziram candidatos; aprovação visual ainda em andamento.
+Chave obtida da sessão autenticada e configurada somente no ambiente local ignorado. Busca real autenticada realizada com cache local. Foram aprovadas 8 de 12 fotos após 21 buscas refinadas. Uma tentativa adicional não alcançou Pixabay por falha DNS da rede local. O usuário manteve a restrição de não usar marca ou texto legível.
 
 ## 5. Subagente verificador
 
@@ -50,7 +51,7 @@ Fonte em emprestai/agents/verificador-spec.md e adaptação Codex em emprestai/.
 
 Prova inicial encontrou lacunas nos quatro CAs da spec002. Erro plantado cdd5dea comentou o teste de ausência de envio de credenciais: nova sessão retornou CA-01 SEM TESTE e NÃO PRONTA. Restauração pelo principal: 43837f1. Após restauração: 28 testes passaram, typecheck/build passaram. Evidência detalhada em emprestai/docs/aula11-verificacao.md.
 
-Tabelas finais das specs003/004 ainda não existem: implementação e validação pendentes.
+Tabelas de evidência parcial das specs003/004 estão em `emprestai/docs/verificacao-pratica.md`. Não são vereditos PRONTA; faltam fotos e validação operacional.
 
 ## 7. Regra posta à prova
 
@@ -58,4 +59,4 @@ checks.md mandava supabase db reset, embora o ADR atribua schema ao Prisma. Foi 
 
 ## 8. Pendências
 
-Autenticação em implementação. Fotos em revisão. Seed, migration de imagem, catálogo e solicitações ainda não concluídos. Vercel retornou acesso negado à equipe existente; autorização solicitada pelo link do próprio conector. Nenhum recurso alternativo foi criado. Banco/Storage remoto permanecem reservados à execução humana pelo enunciado. Nenhuma prova de produção nova foi fabricada.
+Implementação local, testes Postgres descartáveis e build concluídos. Não está PRONTA: faltam quatro fotos compatíveis, provisionamento humano de Auth/Storage/dados, conta professor, variáveis da Vercel, fluxo autenticado publicado e revisão final. Supabase foi encontrado pausado; restauração em andamento. Não criar tag final até validar essas evidências. Detalhes em `emprestai/docs/verificacao-pratica.md` e `emprestai/handoff.md`.
