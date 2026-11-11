@@ -2,7 +2,7 @@
 
 ## Estado atualizado — 11/nov/2026
 
-Nova publicação autorizada: https://emprestai-five.vercel.app, equipe pessoal pedroeduardonascimento17-4822, GitHub conectado. Produção ainda é login inicial da main; funcionalidades reais estão na branch codex/aula11-pratica-subagentes até dados/configuração estarem prontos. Vercel MCP foi reautenticado pessoalmente, mas as ferramentas desta conversa ainda retornam 404 para o novo projeto. Supabase zvemdkmoagksupyyosuk está visível na organização ProjetosVibeCoding; estava pausado e sua restauração foi iniciada. Nenhuma migration, seed, upload ou usuário remoto foi escrito.
+Nova publicação autorizada: https://emprestai-five.vercel.app, equipe pessoal pedroeduardonascimento17-4822, GitHub conectado. Produção ainda é login inicial da main; funcionalidades reais estão na branch codex/aula11-pratica-subagentes. O preview da branch foi bloqueado porque o email autor dos commits anteriores não está associado ao GitHub conectado. Vercel MCP confirma a conta correta, mas ainda não lista o projeto pela API. Supabase zvemdkmoagksupyyosuk está ativo novamente. Nenhuma migration, seed, upload ou usuário remoto foi escrito.
 
 Implementação local: Auth SSR/tRPC, catálogo, solicitar e meus empréstimos, migration imagem e seed idempotente. Última suíte60 testes/10 arquivos passou; build Webpack completo com TypeScript passou após correções da revisão. Detalhes docs/verificacao-pratica.md. Sharp e DDL aprovados; TI0010 manutenção; retirada Balcão de Operações conforme spec001.
 

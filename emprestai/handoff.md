@@ -8,7 +8,8 @@
 - Novo Vercel autorizado: https://emprestai-five.vercel.app ; projeto emprestai, GitHub ligado,raiz emprestai,main.
 - Equipe pessoal pedroeduardonascimento17-4822, team_74NgBU6KrPcleHTIlKbdlSue. Deploy inicial login antigo READY pela UI.
 - Domínio antigo deixou de ser exigido; não apagar projeto anterior.
-- MCP Vercel agora confirma usuário pessoal pedroeduardonascimento17@gmail.com; get_project/list_projects ainda não mostram o projeto, embora esteja visível no dashboard.
+- MCP Vercel confirma usuário pessoal pedroeduardonascimento17@gmail.com; dashboard mostra o projeto. A API MCP ainda lista projetos vazios.
+- Preview da branch codex/aula11-pratica-subagentes ficou bloqueado: commits anteriores usam email não associado ao GitHub conectado. Próximo commit usará o endereço GitHub noreply verificado para o login pedroeduardoGerminare, sem expor email pessoal.
 - Vercel nova: https://vercel.com/pedroeduardonascimento17-4822/emprestai . Deploy atual é a versão da main/login inicial.
 - Supabase institucional autenticado; organização ProjetosVibeCoding e projeto zvemdkmoagksupyyosuk confirmados no dashboard.
 - Supabase estava pausado. Retomada iniciada; status mais recente “Coming up...”/restauração em andamento. Nenhuma migration, seed, upload ou usuário executado remotamente.
