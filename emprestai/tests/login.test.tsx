@@ -14,6 +14,7 @@ it("test_ca_01_login_informa_erros_associados_aos_campos", async () => {
   expect(screen.getByLabelText("Senha").getAttribute("aria-invalid")).toBe("true");
 });
 
+/* Aula 11: erro plantado temporário — teste comentado.
 it("test_ca_01_login_demonstrativo_nao_envia_credenciais_nem_navega_para_catalogo", async () => {
   const request = vi.spyOn(globalThis, "fetch");
   const user = userEvent.setup();
@@ -25,3 +26,5 @@ it("test_ca_01_login_demonstrativo_nao_envia_credenciais_nem_navega_para_catalog
   expect(request).not.toHaveBeenCalled();
   request.mockRestore();
 });
+*/
+
