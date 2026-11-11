@@ -1,17 +1,23 @@
-# Estado — 23/out/2026
-- Escopo: somente página inicial, modelagem Supabase, GitHub e Vercel; sem MVP.
-- Spec ativa: docs/specs/002-infraestrutura. Não executar T3–T10 da spec 001.
-- Usuário autorizou concluir as quatro entregas em sequência, sem pausas por tarefa.
-- Login demonstrativo em / e /login; sem autenticar ou enviar credenciais.
-- 28 testes, typecheck e build aprovados; conferência visual local realizada.
-- Git na pasta superior, main; GitHub privado pedroeduardoGerminare/emprestai criado e push confirmado.
-- Supabase zvemdkmoagksupyyosuk criado em sa-east-1, organização ProjetosVibeCoding.
-- Custo US$ 0/mês e DDL completo aprovados explicitamente.
-- Oito tabelas com RLS aplicadas; suporte_ti e cinco categorias confirmados.
-- Migration Prisma 20261023122556_initial_schema; baseline remoto registrado.
-- Postgres local Docker emprestai-schema-local em 127.0.0.1:54329; reset e seed repetido aprovados.
-- Vercel prj_gnzfZaoGZf2C9QDrlsuQN4TotM0N; produção READY dpl_4rnAuQVWxBLMwTN4TVyLjuH8sf9t.
-- URL https://emprestai-eta.vercel.app verificada no navegador, inclusive validação do formulário.
-- Publicação direta do commit 47edf1a. GitHub conectado à conta; vínculo do projeto ainda pendente.
-- Detalhes em docs/infraestrutura.md. Nenhum segredo versionado.
-- Próximo passo opcional: vincular o repo no Vercel Settings → Git; demais entregas concluídas.
+# Estado — 11/nov/2026
+- Branch codex/aula11-pratica-subagentes; main834c2d7 tem marcador sobre login antigo.
+- Aula11: erro cdd5dea e restauração43837f1, verificador obrigatório; docs/aula11-verificacao.md.
+- Código local Auth SSR/tRPC, catálogo, solicitar/meus empréstimos; image_url e seed12 idempotente.
+- Commits929e619 banco, aec0102 API,2e0d59d telas. Docs/scripts em commit seguinte.
+- Validação final60/60 testes em10 arquivos e build Webpack/TypeScript passaram.
+- Testes Postgres descartável com TESTCONTAINERS_RYUK_DISABLED=true. Não resetar via .env histórico remoto.
+- Novo Vercel autorizado: https://emprestai-five.vercel.app ; projeto emprestai, GitHub ligado,raiz emprestai,main.
+- Equipe pessoal pedroeduardonascimento17-4822, team_74NgBU6KrPcleHTIlKbdlSue. Deploy inicial login antigo READY pela UI.
+- Domínio antigo deixou de ser exigido; não apagar projeto anterior.
+- MCP Vercel reautenticado pessoal; ferramentas chat ativo ainda cache institucional. Usar sessão nova.
+- MCP pessoal get_project404 apesar UI: revalidar grant de projeto antes de confiar API.
+- MCP Supabase reautenticado somente leitura. Pessoal não tem orgs; institucional necessária.
+- Supabase alvo zvemdkmoagksupyyosuk, ProjetosVibeCoding. Nenhuma escrita remota nesta prática.
+- Pixabay chave local ignorada e autenticada; nunca enviar ao deploy/Git.
+- Fotos8 aprovadas/4 bloqueadas TI0003/7/11/12. Usuário manteve exigência sem marcas/texto.
+- Evidências docs/evidencias/revisao-imagens.md; candidatos/cache em .image-work/equipamentos ignorado.
+- Não rodar prepare com review parcial nem fingir12 fotos prontas.
+- Decisões:3itens/14dias corridos,TI0010 manutenção,sharp e image_url aprovados,Balcão Operações.
+- scripts/provision-pratica.mjs reservado à execução humana; valida alvo+manifesto antes de escrever.
+- Faltam env runtime Vercel, migration/upload/seed/Auth humanos, conta professor e E2E publicado.
+- ENTREGA.md parcial; não criar tag entrega-pratica nem declarar specs PRONTAS.
+- Próximo passo: confirmar Supabase institucional, preparar execução humana e concluir4 fotos.

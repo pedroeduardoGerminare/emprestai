@@ -1,5 +1,15 @@
 # Infraestrutura — EmpresTI
 
+## Atualização de 11/nov/2026
+
+Usuário autorizou trocar a publicação para a conta pessoal após inacessibilidade da equipe anterior. Novo projeto emprestai, equipe pedroeduardonascimento17-4822 (team_74NgBU6KrPcleHTIlKbdlSue). Painel https://vercel.com/pedroeduardonascimento17-4822/emprestai ; domínio https://emprestai-five.vercel.app . GitHub conectado com sucesso pela interface, raiz emprestai e Next.js, main. Primeira publicação mostrou Deployed to Production em 50s (834c2d7, versão demonstrativa). Implementação real ainda está na branch codex/aula11-pratica-subagentes aguardando dados/configuração para produção.
+
+MCP local Vercel reautenticado: sessão nova confirmou conta pessoal. Ferramentas já abertas neste chat mantiveram identidade institucional em cache. Consulta nova por projeto ainda retornou 404, apesar de publicação confirmada pela UI; acesso do app ao projeto precisa ser revalidado, não presumido. A configuração do endpoint não foi alterada.
+
+Supabase existente deve ser mantido. Conta pessoal não possui organizações nem acesso a zvemdkmoagksupyyosuk; login institucional pendente. Autorização ampla foi bloqueada pela revisão automática; iniciado fluxo somente de leitura, sem escrita remota ou leitura de segredos. Variáveis de runtime ainda não configuradas no novo Vercel. Não expor chave Pixabay no deploy.
+
+Os registros abaixo são históricos de 23/out/2026, inclusive o domínio antigo e o escopo demonstrativo.
+
 Escopo: página inicial de demonstração e validação da infraestrutura, sem MVP ou autenticação real. Entrega guiada pela spec 002; as demais telas da spec 001 não fazem parte desta publicação.
 
 ## GitHub

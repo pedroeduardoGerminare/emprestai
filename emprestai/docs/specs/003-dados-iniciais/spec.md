@@ -10,15 +10,15 @@ Não há um PRD novo: esta spec descreve o incremento e não muda as regras do n
 
 ## Perguntas ainda sem resposta
 
-1. TI-0010 consta em manutenção na lista e disponível no briefing. O PRD não fixa estado de patrimônio individual; a orientação de seguir o PRD não resolve esta divergência. Não persistir seu estado definitivo sem decisão do usuário.
-2. O enunciado pede sharp, mas a biblioteca não foi aprovada no ADR. Aprovar a dependência ou escolher alternativa antes da tarefa de transformação.
-3. equipment exige pickup_location, não informado na atividade. Definir local de retirada para os dados reais; não inventar endereço/balcão.
-4. A nova coluna de imagem requer aprovação do DDL conforme rules/migration.md. Não executar migration com este documento como autorização.
+1. Resolvido pelo usuário: seguir lista, TI-0010 em manutenção (11/nov/2026).
+2. Resolvido pelo usuário: sharp aprovado para transformação das imagens (11/nov/2026).
+3. equipment exige pickup_location: usar a retirada no balcão de Operações já definida na spec001, sem acrescentar endereço ou andar.
+4. Resolvido pelo usuário: DDL image_url opcional e teste local aprovados (11/nov/2026).
 5. Publicação dos dados e imagens no Supabase deve ser executada pelo usuário, conforme o contrato da prática; preparar artefatos idempotentes sem efetuar escrita remota pelo agente.
 
 ## Critérios de aceite
 
-- **CA-01** O conjunto contém exatamente TI-0001 a TI-0012: quatro notebooks, três monitores, três cabos e duas câmeras; patrimônios únicos no tenant suporte_ti, nomes/categorias da lista. TI-0004 e TI-0007 em manutenção; TI-0010 depende da decisão registrada, demais disponíveis. Nenhum empréstimo criado pelo seed.
+- **CA-01** O conjunto contém exatamente TI-0001 a TI-0012: quatro notebooks, três monitores, três cabos e duas câmeras; patrimônios únicos no tenant suporte_ti, nomes/categorias da lista. TI-0004, TI-0007 e TI-0010 em manutenção; demais disponíveis. Nenhum empréstimo criado pelo seed.
 - **CA-02** Reexecutar preparação/seed não duplica equipamentos, categorias, perfil, associação ou imagens; não altera empréstimos existentes nem redefine senha de conta já provisionada silenciosamente.
 - **CA-03** Cada equipamento tem uma foto distinta obtida exclusivamente pela API Pixabay através da skill imagens-equipamentos. Arquivos finais têm exatamente 800×600, IDs e hashes únicos; manifesto registra página, autor, licença, dimensões e revisão visual sem pessoas, marca/logo legível, texto ou tela com conteúdo. Não usar placeholder como foto aprovada.
 - **CA-04** Imagens finais abrem anonimamente em URLs HTTPS do bucket público do mesmo Supabase do projeto. Caminhos determinísticos por patrimônio; reenvio idempotente é preparado para execução humana. Não usar hotlink permanente Pixabay nem incorporar chave à URL pública.

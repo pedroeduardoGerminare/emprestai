@@ -8,6 +8,6 @@ Fonte consultada em 11/nov/2026: https://pixabay.com/api/docs/ . Consultar tamb�
 - Baixar arquivos aprovados; hotlink permanente das URLs Pixabay é proibido. Publicação final será no Supabase Storage pelo usuário.
 - Não imprimir URL de requisição com key nem corpo de erro que a contenha.
 - Créditos e licença acompanham manifesto. A troca do fornecedor não autoriza presumir regras Pexels válidas para Pixabay.
-- sharp foi pedido pelo exercício, mas ainda depende de aprovação de biblioteca fora do ADR. Não instalar antes da decisão.
+- sharp foi aprovado explicitamente pelo usuário em 11/nov/2026 para esta transformação e instalado como dependência direta.
 - Garantias no script pipeline.mjs: URLs permitidas e redirects conferidos, timeout/limite de tamanho, cache 24h, revisão explícita, ID distinto, nomes determinísticos, hashes finais distintos e JPEG 800×600. A execução real do preparo ainda depende de sharp aprovado e revisão dos candidatos.
 - Revisão humana/visual: ausência de pessoas, marcas, texto e conteúdo de tela. Não apresentar filtro de API como garantia disso.

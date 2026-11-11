@@ -2,6 +2,8 @@
 
 ## Atividade autorizada em 11/nov/2026
 
+Atualização de publicação: após falha de acesso à equipe antiga, usuário autorizou explicitamente criar novo projeto Vercel na conta pessoal e trocar o MCP para essa conta. Novo domínio confirmado emprestai-five.vercel.app, projeto emprestai na equipe pedroeduardonascimento17-4822 (team_74NgBU6KrPcleHTIlKbdlSue), conectado ao mesmo GitHub. Não voltar a exigir domínio antigo: essa restrição foi substituída pelo usuário. Supabase existente permanece o alvo; não criar banco novo por falta de acesso. Usuário confirmou manter exigência de fotos sem marca/texto; 8 aprovadas, 4 bloqueadas.
+
 Executar Aula 11 e depois prática SDD, em tarefas sequenciais com testes e commits. Esta atividade amplia o escopo histórico da entrega 002: autenticação real, imagens, dados iniciais, catálogo e solicitação. Pixabay substitui Pexels por decisão explícita do usuário. Não colocar dados de acesso do professor no README. Preservar GitHub e projeto/domínio Vercel existentes. Decisões ambíguas de negócio continuam sendo do usuário; não fabricar histórico ou evidência de aprovação.
 
 ## Subagentes
