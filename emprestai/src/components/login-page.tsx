@@ -7,6 +7,8 @@ import { z } from "zod";
 import { ArrowRightIcon, PackageIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
+import { api } from "@/lib/trpc";
 
 const loginSchema = z.object({
   email: z.email("Informe um e-mail válido."),
@@ -15,6 +17,11 @@ const loginSchema = z.object({
 
 export function LoginPage() {
   const [notice, setNotice] = useState("");
+  const router = useRouter();
+  const login = api.auth.login.useMutation({
+    onSuccess: () => { router.push("/catalogo"); router.refresh(); },
+    onError: () => setNotice("Não foi possível entrar. Confira suas credenciais e tente novamente."),
+  });
   const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: "", password: "" },
@@ -44,7 +51,7 @@ export function LoginPage() {
       </section>
 
       <section aria-labelledby="login-title" className="grid place-items-center px-8 py-14 lg:p-14">
-        <form noValidate onSubmit={handleSubmit(() => setNotice("O acesso será liberado após a configuração dos convites."))} className="flex w-full max-w-[372px] flex-col gap-[22px]">
+        <form noValidate onSubmit={handleSubmit((values) => { setNotice(""); login.mutate(values); })} className="flex w-full max-w-[372px] flex-col gap-[22px]">
           <div className="flex flex-col gap-2">
             <h2 id="login-title" className="text-[22px] leading-[1.2] font-semibold">Entrar</h2>
             <p className="text-[13px] text-text-dim">E-mail e senha do convite.</p>
@@ -63,12 +70,12 @@ export function LoginPage() {
             </div>
           </div>
 
-          <Button type="submit" variant="primary" size="form" className="w-full justify-between">Entrar<ArrowRightIcon size={16} aria-hidden="true" /></Button>
+          <Button disabled={login.isPending} type="submit" variant="primary" size="form" className="w-full justify-between">{login.isPending ? "Entrando…" : "Entrar"}<ArrowRightIcon size={16} aria-hidden="true" /></Button>
           <div className="flex flex-col gap-[18px]">
             <div aria-hidden="true" className="support-rule h-px w-full" />
             <p className="text-center text-xs text-text-faint">Sem acesso? Fale com Operações.</p>
           </div>
-          <p role="status" aria-live="polite" className="text-center text-xs leading-relaxed text-text-muted">{notice || "Prévia da página de acesso."}</p>
+          <p role="status" aria-live="polite" className="text-center text-xs leading-relaxed text-text-muted">{notice}</p>
         </form>
       </section>
     </main>
