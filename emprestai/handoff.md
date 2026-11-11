@@ -15,13 +15,13 @@
 - Supabase zvemdkmoagksupyyosuk está Healthy novamente. Última migration visível: prisma_history_baseline. Nenhuma migration, seed, upload ou usuário executado remotamente.
 - Vercel tem SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY (chave pública, não service role) nos ambientes Preview e Production. Falta DATABASE_URL privada do Postgres para execução das rotas; conexão exibida pelo Supabase exige a senha definida pelo usuário.
 - Pixabay chave local ignorada e autenticada; nunca enviar ao deploy/Git.
-- Fotos8 aprovadas/4 bloqueadas TI0003/7/11/12. Usuário manteve exigência sem marcas/texto.
+- 12 imagens preparadas em 800×600. TI0003, TI0007, TI0011 e TI0012 usam fallbacks após busca sem opções plenamente compatíveis; o usuário autorizou os desvios, que permanecem registrados contra CA-03.
 - Evidências docs/evidencias/revisao-imagens.md; candidatos/cache em .image-work/equipamentos ignorado.
-- Não rodar prepare com review parcial nem fingir12 fotos prontas.
+- Manifesto e binários locais preparados; não enviar ao Supabase até o usuário executar o script humano de provisionamento.
 - Decisões:3itens/14dias corridos,TI0010 manutenção,sharp e image_url aprovados,Balcão Operações.
 - scripts/provision-pratica.mjs reservado à execução humana; valida alvo+manifesto antes de escrever.
-- Buscas suplementares Pixabay e inspeção visual não encontraram candidatas que passem os critérios para TI0003, TI0007, TI0011 e TI0012. Faltam 4 fotos sem marca/texto.
+- Buscas suplementares Pixabay e inspeção visual não encontraram candidatas que passem integralmente os critérios para TI0003, TI0007, TI0011 e TI0012. Os fallbacks foram aprovados pelo usuário com desvios documentados.
 - Faltam DATABASE_URL privada no Vercel, migration/upload/seed/Auth humanos, conta professor e E2E publicado.
 - PR rascunho: https://github.com/pedroeduardoGerminare/emprestai/pull/1 . Checklists comprovados atualizados nos commits8c1a928,5edb2c6; ENTREGA atualizada em fdec13b.
 - ENTREGA.md parcial; não criar tag entrega-pratica nem declarar specs PRONTAS.
-- Próximo passo: usuário precisa fornecer a senha do banco apenas em canal de configuração seguro/local e executar `scripts/provision-pratica.mjs` conforme o contrato humano; depois criar/confirmar conta professor, concluir conjunto de fotos aprovado e repetir E2E. Não declarar specs PRONTAS antes das evidências.
+- Próximo passo: usuário precisa configurar senhas/segredos apenas localmente em `.env.production.local` e executar `scripts/provision-pratica.mjs --execute-human zvemdkmoagksupyyosuk <pasta-prepared>` conforme o contrato humano; depois verificar migração, fotos públicas, conta professor e repetir E2E. Não declarar specs PRONTAS antes das evidências.

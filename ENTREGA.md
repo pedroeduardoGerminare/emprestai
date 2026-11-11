@@ -6,7 +6,20 @@ Nova publicação autorizada: https://emprestai-five.vercel.app, equipe pessoal 
 
 Implementação local: Auth SSR/tRPC, catálogo, solicitar e meus empréstimos, migration imagem e seed idempotente. Última suíte60 testes/10 arquivos passou; build Webpack completo com TypeScript passou após correções da revisão. Detalhes docs/verificacao-pratica.md. Sharp e DDL aprovados; TI0010 manutenção; retirada Balcão de Operações conforme spec001.
 
-Fotos 8 aprovadas/4 bloqueadas após novas buscas e inspeção visual; usuário manteve restrições. Conta professor, 12 fotos, provisionamento humano, DATABASE_URL no Vercel, validação ponta a ponta e tag final pendentes. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
+12 imagens preparadas localmente em 800×600. A pedido do usuário, quatro fallbacks foram escolhidos apesar de desvios visuais/categoria, todos descritos em `emprestai/docs/evidencias/revisao-imagens.md`; CA-03 permanece parcialmente não atendido. Conta professor, provisionamento humano, DATABASE_URL no Vercel, validação ponta a ponta e tag final pendentes. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
+
+### Explicação dos fallbacks de imagem
+
+As buscas Pixabay foram feitas e as opções foram inspecionadas. Não foi encontrada uma alternativa que atendesse todos os critérios visuais para os quatro equipamentos abaixo. Conforme autorização posterior do usuário, foram incluídas as melhores imagens restantes; o motivo da exceção fica visível no catálogo e no manifesto:
+
+| Patrimônio | Imagem utilizada | Motivo do desvio |
+|---|---|---|
+| TI-0003 — Notebook 13 polegadas | Pixabay 5332720 | A imagem mostra o notebook correto e tela vazia, mas as letras do teclado são visíveis. |
+| TI-0007 — Monitor 22 polegadas | Pixabay 8275673 | A tela está vazia, mas a foto de origem representa uma televisão, não um monitor de computador. |
+| TI-0011 — Webcam Full HD | Pixabay 796227 | A webcam está correta, mas “WEB CAMERA” e dados técnicos estão escritos no equipamento. |
+| TI-0012 — Câmera compacta | Pixabay 4907226 | A câmera está correta, mas há inscrições legíveis nos controles traseiros. |
+
+Essas imagens são ilustrativas; os desvios não foram removidos por edição. A seleção completa não significa conformidade total com CA-03. Os 12 arquivos 800×600 e seus hashes constam em `emprestai/docs/evidencias/manifest-imagens-2026-11.json`; os binários prontos permanecem locais para o provisionamento humano.
 
 ## Links
 - Repositório: https://github.com/pedroeduardoGerminare/emprestai
@@ -27,7 +40,7 @@ Não há tag final desta prática. A produção histórica não representa ainda
 
 ## 1b. Decisões resolvidas e lacunas
 
-TI-0010 segue a lista de equipamentos e fica em manutenção; retirada no Balcão de Operações, conforme spec 001. O usuário aprovou Sharp e DDL nullable `image_url`. Permanecem pendentes quatro fotos compatíveis e a execução humana remota. Ver `emprestai/docs/specs/003-dados-iniciais/tasks.md`.
+TI-0010 segue a lista de equipamentos e fica em manutenção; retirada no Balcão de Operações, conforme spec 001. O usuário aprovou Sharp e DDL nullable `image_url`. Os quatro equipamentos sem foto plenamente compatível receberam imagem alternativa por decisão posterior explícita do usuário, com desvio registrado. Ver `emprestai/docs/specs/003-dados-iniciais/tasks.md`.
 
 ## 2. Onde o agente tentou decidir
 
@@ -39,9 +52,9 @@ Troca Pexels → Pixabay foi exigência explícita do usuário e registrada na s
 
 ## 4. Skill imagens-equipamentos
 
-`SKILL.md` contém fluxo e limites; `references/contrato.md` registra condições do fornecedor; `scripts/pipeline.mjs` implementa cache, origem permitida, revisão obrigatória, unicidade e preparo. Testes negativos passaram. O preparo final não foi executado porque só 8 fotos foram aprovadas; não existe upload nessa skill.
+`SKILL.md` contém fluxo e limites; `references/contrato.md` registra condições do fornecedor; `scripts/pipeline.mjs` implementa cache, origem permitida, revisão obrigatória, unicidade e preparo. Testes negativos passaram. O preparo de 12 imagens ocorreu localmente; nenhum upload foi executado por esta skill.
 
-Chave obtida da sessão autenticada e configurada somente no ambiente local ignorado. Busca real autenticada realizada com cache local. Foram aprovadas 8 de 12 fotos após 21 buscas refinadas. Uma tentativa adicional não alcançou Pixabay por falha DNS da rede local. O usuário manteve a restrição de não usar marca ou texto legível.
+Chave obtida da sessão autenticada e configurada somente no ambiente local ignorado. Busca real autenticada realizada com cache local, incluindo 21 buscas refinadas e novas consultas. A primeira revisão aprovou 8 de 12 dentro dos critérios; em 11/nov/2026, o usuário autorizou explicitamente completar os quatro itens com fallbacks, mantendo os desvios descritos acima.
 
 ## 5. Subagente verificador
 
@@ -59,4 +72,4 @@ checks.md mandava supabase db reset, embora o ADR atribua schema ao Prisma. Foi 
 
 ## 8. Pendências
 
-Implementação local, testes Postgres descartáveis e build concluídos. Não está PRONTA: faltam quatro fotos compatíveis, provisionamento humano de Auth/Storage/dados, conta professor, DATABASE_URL privada no Vercel, fluxo autenticado publicado e revisão final. Supabase está Healthy. As variáveis públicas SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY estão definidas nos ambientes Preview e Production. Não criar tag final até validar essas evidências. Detalhes em `emprestai/docs/verificacao-pratica.md` e `emprestai/handoff.md`.
+Implementação local, testes Postgres descartáveis, build e preparo local das 12 imagens concluídos. Não está PRONTA: quatro imagens mantêm desvios do CA-03, além de faltarem provisionamento humano de Auth/Storage/dados, conta professor, DATABASE_URL privada no Vercel, fluxo autenticado publicado e revisão final. Supabase está Healthy. As variáveis públicas SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY estão definidas nos ambientes Preview e Production. Não criar tag final até validar essas evidências. Detalhes em `emprestai/docs/verificacao-pratica.md` e `emprestai/handoff.md`.
