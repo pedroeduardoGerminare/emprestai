@@ -1,6 +1,6 @@
 # Verificação independente da prática
 
-Estado: NÃO PRONTA para entrega operacional.
+Estado: provisionamento remoto concluído; falta validação E2E no endereço público e revisão independente final. CA-03 permanece parcial devido a quatro fallbacks autorizados.
 
 Revisão independente leu specs003/004, código e testes, sem acessar .env nem corrigir. Achados: alvo Prisma não validado antes do provisionamento; validação forte tardia; papel de conta preexistente não conferido; logout bloqueado em ausência de membership; cobertura UI incompleta.
 
@@ -10,13 +10,14 @@ Resultado após correções: 60 testes passaram em 10 arquivos, execução seria
 
 | Spec | Situação de evidência |
 |---|---|
-| 003 CA01/02 | Seed12 e idempotência local comprovados; provisionamento Auth/Storage real pendente. |
-| 003 CA03/04 | 8 fotos aprovadas, 4 bloqueadas; falta conjunto final800x600 e URLs de Storage públicas. |
-| 003 CA05/06 | Código Auth/cookies/contexto testado; conta de correção e login operacional pendentes. |
-| 003 CA07/08 | Checks locais passaram; sem aprovação operacional final. |
-| 004 CA01 | Catálogo/isolamento/cursor testados; 12 fotos/dados reais pendentes. |
+| 003 CA01/02 | Migration remota aplicada; seed verificado com 12 equipamentos, 5 categorias e zero empréstimos. |
+| 003 CA03/04 | 12 imagens 800×600, URLs únicas e 12 objetos públicos verificados; quatro fallbacks autorizados mantêm CA-03 parcial. |
+| 003 CA05/06 | Conta do professor e membership verificadas; falta login E2E publicado. |
+| 003 CA07/08 | Checks locais passaram; falta revisão independente final. |
+| 004 CA01 | Catálogo/isolamento/cursor testados; 12 equipamentos e imagens remotos verificados. |
 | 004 CA02/03/04/05 | Transações, prazo14corridos, limite3, atraso e corridas reais comprovados em createCaller/Postgres. |
 | 004 CA06/07 | Posse, estados, recusa, formato de data e invalidação testados. Falta fluxo autenticado publicado. |
-| 004 CA08 | Sem veredito final PRONTA; dependências operacionais ainda abertas. |
+| 004 CA08 | Sem veredito final PRONTA; falta fluxo publicado e revisão independente. |
 
-Não criar tag entrega-pratica enquanto faltarem fotos e produção. Nenhuma evidência sintética é apresentada como foto aprovada ou como execução humana remota.
+Migration `20261111074737`, Storage e Auth foram provisionados em produção e conferidos por consultas. Não criar tag entrega-pratica antes do E2E publicado e revisão independente. Nenhuma evidência sintética é apresentada como foto plenamente aprovada.
+

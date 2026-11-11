@@ -1,12 +1,16 @@
-# Entrega da prática — em andamento
+# Entrega da prática — validação final de publicação
 
 ## Estado atualizado — 11/nov/2026
 
-Nova publicação autorizada: https://emprestai-five.vercel.app, equipe pessoal pedroeduardonascimento17-4822, GitHub conectado. Produção continua no código da main/login inicial; funcionalidades reais estão na branch codex/aula11-pratica-subagentes e PR rascunho #1. Preview branch ficou READY após corrigir o email do autor para o noreply GitHub. O domínio principal permanece o mesmo. Vercel MCP confirma a conta correta, mas ainda não lista o projeto pela API. Supabase zvemdkmoagksupyyosuk está Healthy. Vercel recebeu SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY nos ambientes Preview e Production; DATABASE_URL privada ainda falta. Nenhuma migration, seed, upload ou usuário remoto foi escrito.
+Publicação autorizada em https://emprestai-five.vercel.app, equipe pessoal pedroeduardonascimento17-4822 e repositório conectado. A implementação segue na branch `codex/aula11-pratica-subagentes`, PR #1; a produção ainda precisa receber essa branch e passar pelo E2E publicado. O domínio principal permanece o mesmo. O MCP da Vercel ainda retorna 404 para este projeto; a configuração foi feita pelo painel do projeto.
+
+Provisionamento remoto concluído em 11/nov/2026 no Supabase `zvemdkmoagksupyyosuk`: migration `20261111074737` (`equipment_image`); 12 equipamentos em 5 categorias; 12 URLs únicas; bucket público `equipamentos` com 12 objetos; conta `marcelo.grilo@institutojef.org.br` com membership de colaborador e zero empréstimos. Consultas de verificação confirmaram esses totais. A conta existente não teve a senha alterada.
+
+A conexão de pooler registrada no arquivo local foi rejeitada pelo Supavisor como `ENOTFOUND`; a conexão direta ao host do projeto foi testada com sucesso e configurada como `DATABASE_URL` de Production na Vercel. `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY` e `PROFESSOR_PASSWORD` também estão como variáveis privadas no ambiente Production. Nenhum valor de segredo é documentado aqui. O repositório não tem workflow GitHub Actions que precise desses segredos.
 
 Implementação local: Auth SSR/tRPC, catálogo, solicitar e meus empréstimos, migration imagem e seed idempotente. Última suíte60 testes/10 arquivos passou; build Webpack completo com TypeScript passou após correções da revisão. Detalhes docs/verificacao-pratica.md. Sharp e DDL aprovados; TI0010 manutenção; retirada Balcão de Operações conforme spec001.
 
-12 imagens preparadas localmente em 800×600. A pedido do usuário, quatro fallbacks foram escolhidos apesar de desvios visuais/categoria, todos descritos em `emprestai/docs/evidencias/revisao-imagens.md`; CA-03 permanece parcialmente não atendido. Conta professor, provisionamento humano, DATABASE_URL no Vercel, validação ponta a ponta e tag final pendentes. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
+12 imagens 800×600 foram enviadas e vinculadas. A pedido do usuário, quatro fallbacks foram escolhidos apesar de desvios visuais/categoria, todos descritos em `emprestai/docs/evidencias/revisao-imagens.md`; CA-03 permanece parcialmente não atendido. A revisão independente e o teste de login/fluxo dependem de uma sessão real do professor; CA-03 permanece parcialmente atendido devido aos fallbacks autorizados. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
 
 ### Explicação dos fallbacks de imagem
 
@@ -26,7 +30,7 @@ Essas imagens são ilustrativas; os desvios não foram removidos por edição. A
 - Produção criada nesta atividade: https://emprestai-five.vercel.app
 - Produção histórica: https://emprestai-eta.vercel.app
 
-Não há tag final desta prática. A produção histórica não representa ainda as specs 003/004.
+Não há tag final desta prática. 
 
 ## 1. Conflitos
 
@@ -72,4 +76,5 @@ checks.md mandava supabase db reset, embora o ADR atribua schema ao Prisma. Foi 
 
 ## 8. Pendências
 
-Implementação local, testes Postgres descartáveis, build e preparo local das 12 imagens concluídos. Não está PRONTA: quatro imagens mantêm desvios do CA-03, além de faltarem provisionamento humano de Auth/Storage/dados, conta professor, DATABASE_URL privada no Vercel, fluxo autenticado publicado e revisão final. Supabase está Healthy. As variáveis públicas SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY estão definidas nos ambientes Preview e Production. Não criar tag final até validar essas evidências. Detalhes em `emprestai/docs/verificacao-pratica.md` e `emprestai/handoff.md`.
+Provisionamento remoto de banco, Storage e Auth concluído e conferido; build e 60 testes locais passaram antes da publicação. PR #1 integrado à `main`; os testes automatizados e build foram aprovados. O fluxo autenticado depende de uma sessão real para validar. Quatro imagens mantêm desvios do CA-03, registrados e autorizados pelo usuário; isso não será descrito como conformidade total. Não criar tag final até validar o fluxo publicado. Detalhes em `emprestai/docs/verificacao-pratica.md` e `emprestai/handoff.md`.
+

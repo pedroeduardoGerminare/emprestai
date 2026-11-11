@@ -1,27 +1,13 @@
-# Estado — 11/nov/2026
-- Branch codex/aula11-pratica-subagentes; main834c2d7 tem marcador sobre login antigo.
-- Aula11: erro cdd5dea e restauração43837f1, verificador obrigatório; docs/aula11-verificacao.md.
-- Código local Auth SSR/tRPC, catálogo, solicitar/meus empréstimos; image_url e seed12 idempotente.
-- Commits929e619 banco, aec0102 API,2e0d59d telas. Docs/scripts em commit seguinte.
-- Validação final60/60 testes em10 arquivos e build Webpack/TypeScript passaram.
-- Testes Postgres descartável com TESTCONTAINERS_RYUK_DISABLED=true. Não resetar via .env histórico remoto.
-- Novo Vercel autorizado: https://emprestai-five.vercel.app ; projeto emprestai, GitHub ligado,raiz emprestai,main.
-- Equipe pessoal pedroeduardonascimento17-4822, team_74NgBU6KrPcleHTIlKbdlSue. Deploy inicial login antigo READY pela UI.
-- Domínio antigo deixou de ser exigido; não apagar projeto anterior.
-- MCP Vercel confirma usuário pessoal pedroeduardonascimento17@gmail.com; dashboard mostra o projeto. A API MCP ainda lista projetos vazios.
-- Preview da branch codex/aula11-pratica-subagentes ficou READY depois do commit 7c66d68, assinado com endereço GitHub noreply. O domínio principal permanece emprestai-five.vercel.app.
-- Vercel nova: https://vercel.com/pedroeduardonascimento17-4822/emprestai . Deploy atual é a versão da main/login inicial.
-- Supabase institucional autenticado; organização ProjetosVibeCoding e projeto zvemdkmoagksupyyosuk confirmados no dashboard.
-- Supabase zvemdkmoagksupyyosuk está Healthy novamente. Última migration visível: prisma_history_baseline. Nenhuma migration, seed, upload ou usuário executado remotamente.
-- Vercel tem SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY (chave pública, não service role) nos ambientes Preview e Production. Falta DATABASE_URL privada do Postgres para execução das rotas; conexão exibida pelo Supabase exige a senha definida pelo usuário.
-- Pixabay chave local ignorada e autenticada; nunca enviar ao deploy/Git.
-- 12 imagens preparadas em 800×600. TI0003, TI0007, TI0011 e TI0012 usam fallbacks após busca sem opções plenamente compatíveis; o usuário autorizou os desvios, que permanecem registrados contra CA-03.
-- Evidências docs/evidencias/revisao-imagens.md; candidatos/cache em .image-work/equipamentos ignorado.
-- Manifesto e binários locais preparados; não enviar ao Supabase até o usuário executar o script humano de provisionamento.
-- Decisões:3itens/14dias corridos,TI0010 manutenção,sharp e image_url aprovados,Balcão Operações.
-- scripts/provision-pratica.mjs reservado à execução humana; valida alvo+manifesto antes de escrever.
-- Buscas suplementares Pixabay e inspeção visual não encontraram candidatas que passem integralmente os critérios para TI0003, TI0007, TI0011 e TI0012. Os fallbacks foram aprovados pelo usuário com desvios documentados.
-- Faltam DATABASE_URL privada no Vercel, migration/upload/seed/Auth humanos, conta professor e E2E publicado.
-- PR rascunho: https://github.com/pedroeduardoGerminare/emprestai/pull/1 . Checklists comprovados atualizados nos commits8c1a928,5edb2c6; ENTREGA atualizada em fdec13b.
-- ENTREGA.md parcial; não criar tag entrega-pratica nem declarar specs PRONTAS.
-- Próximo passo: usuário precisa configurar senhas/segredos apenas localmente em `.env.production.local` e executar `scripts/provision-pratica.mjs --execute-human zvemdkmoagksupyyosuk <pasta-prepared>` conforme o contrato humano; depois verificar migração, fotos públicas, conta professor e repetir E2E. Não declarar specs PRONTAS antes das evidências.
+# Estado da entrega — 11/nov/2026
+
+- Branch: `codex/aula11-pratica-subagentes`; PR #1 integrado à `main`; produção no mesmo domínio `https://emprestai-five.vercel.app`.
+- Aula 11: evidências da falha plantada/restaurada e verificador independente em `docs/aula11-verificacao.md`.
+- Implementação: autenticação Supabase SSR/tRPC, catálogo, solicitação e meus empréstimos; migration `image_url`; seed idempotente.
+- Validação local registrada: 60 testes em 10 arquivos; build Webpack/TypeScript aprovado.
+- Supabase `zvemdkmoagksupyyosuk`: migration remota `20261111074737 equipment_image` aplicada; 12 equipamentos, 5 categorias, 12 imagens distintas, 12 objetos no bucket público `equipamentos`, conta do professor e uma membership de colaborador; zero empréstimos. Totais confirmados por SQL de leitura após provisionar.
+- Conta de correção: `marcelo.grilo@institutojef.org.br`. A senha usada está em `.env.production.local` na variável `PROFESSOR_PASSWORD`; não copiar para README, Git ou chat. Conta existente não teve a senha alterada.
+- Vercel: projeto `emprestai`, equipe pessoal `pedroeduardonascimento17-4822`, domínio `https://emprestai-five.vercel.app`. `DATABASE_URL` de Production foi corrigida para a conexão direta validada; variáveis públicas Supabase já existiam. A API MCP da Vercel ainda retorna 404; painel web confirma o projeto.
+- Quatro fallbacks de imagem (TI-0003, TI-0007, TI-0011, TI-0012) mantêm desvios do CA-03 autorizados pelo usuário e explicados em `../ENTREGA.md` e `docs/evidencias/revisao-imagens.md`.
+- Pendência: validar login e fluxo autenticado com sessão real do professor; registrar revisão independente final. Não declarar conformidade plena do CA-03 nem criar tag final enquanto houver esses desvios.
+- Não há workflow GitHub Actions neste repositório; os segredos de runtime ficam na Vercel, e os valores de provisionamento permanecem apenas em arquivo local ignorado.
+
