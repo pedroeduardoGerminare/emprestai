@@ -5,6 +5,10 @@ alwaysApply: true
 ---
 
 # Fluxo de spec
+
+## Antes de declarar uma spec pronta
+
+Delegue ao verificador-spec (agents/verificador-spec.md) com contexto limpo, caminho da spec e intervalo de commits/diff. Somente Veredito: PRONTA conclui a spec. Qualquer outro resultado volta às tarefas; quem corrige é o principal, nunca o verificador.
 > leitor: agente
 
 ## Quando
