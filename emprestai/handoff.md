@@ -8,16 +8,18 @@
 - Novo Vercel autorizado: https://emprestai-five.vercel.app ; projeto emprestai, GitHub ligado,raiz emprestai,main.
 - Equipe pessoal pedroeduardonascimento17-4822, team_74NgBU6KrPcleHTIlKbdlSue. Deploy inicial login antigo READY pela UI.
 - Domínio antigo deixou de ser exigido; não apagar projeto anterior.
-- MCP Vercel reautenticado pessoal; ferramentas chat ativo ainda cache institucional. Usar sessão nova.
-- MCP pessoal get_project404 apesar UI: revalidar grant de projeto antes de confiar API.
-- MCP Supabase reautenticado somente leitura. Pessoal não tem orgs; institucional necessária.
-- Supabase alvo zvemdkmoagksupyyosuk, ProjetosVibeCoding. Nenhuma escrita remota nesta prática.
+- MCP Vercel agora confirma usuário pessoal pedroeduardonascimento17@gmail.com; get_project/list_projects ainda não mostram o projeto, embora esteja visível no dashboard.
+- Vercel nova: https://vercel.com/pedroeduardonascimento17-4822/emprestai . Deploy atual é a versão da main/login inicial.
+- Supabase institucional autenticado; organização ProjetosVibeCoding e projeto zvemdkmoagksupyyosuk confirmados no dashboard.
+- Supabase estava pausado. Retomada iniciada; status mais recente “Coming up...”/restauração em andamento. Nenhuma migration, seed, upload ou usuário executado remotamente.
 - Pixabay chave local ignorada e autenticada; nunca enviar ao deploy/Git.
 - Fotos8 aprovadas/4 bloqueadas TI0003/7/11/12. Usuário manteve exigência sem marcas/texto.
 - Evidências docs/evidencias/revisao-imagens.md; candidatos/cache em .image-work/equipamentos ignorado.
 - Não rodar prepare com review parcial nem fingir12 fotos prontas.
 - Decisões:3itens/14dias corridos,TI0010 manutenção,sharp e image_url aprovados,Balcão Operações.
 - scripts/provision-pratica.mjs reservado à execução humana; valida alvo+manifesto antes de escrever.
+- Tentativa suplementar de busca Pixabay falhou por DNS local; não alterou a seleção. Faltam 4 fotos sem marca/texto.
 - Faltam env runtime Vercel, migration/upload/seed/Auth humanos, conta professor e E2E publicado.
+- PR rascunho: https://github.com/pedroeduardoGerminare/emprestai/pull/1 . Checklists comprovados atualizados nos commits8c1a928,5edb2c6; ENTREGA atualizada em fdec13b.
 - ENTREGA.md parcial; não criar tag entrega-pratica nem declarar specs PRONTAS.
-- Próximo passo: confirmar Supabase institucional, preparar execução humana e concluir4 fotos.
+- Próximo passo: aguardar Supabase ativo, seguir com busca aprovada de fotos quando rede permitir e preparar execução humana; não declarar entrega concluída antes das pendências.
