@@ -10,3 +10,5 @@
 **/supabase/.temp/
 **/supabase/.branches/
 **/npm-debug.log*
+**/.image-work/
+.deploy-probe/

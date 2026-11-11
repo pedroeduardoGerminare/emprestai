@@ -22,9 +22,10 @@ beforeAll(async () => {
   database = await new PostgreSqlContainer("postgres:16-alpine").start();
   const bootstrap = readFileSync(new URL("./auth-bootstrap.sql", import.meta.url), "utf8");
   const migrationsRoot = new URL("../prisma/migrations/", import.meta.url);
-  const migration = readdirSync(migrationsRoot).find((name) => name.endsWith("_initial_schema"));
-  if (!migration) throw new Error("Migration inicial ausente");
-  const ddl = readFileSync(new URL(`${migration}/migration.sql`, migrationsRoot), "utf8");
+  const migrations = readdirSync(migrationsRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
+  if (!migrations.length) throw new Error("Migrations ausentes");
+  const ddl = migrations.map((name) => readFileSync(new URL(`${name}/migration.sql`, migrationsRoot), "utf8")).join("\n");
   const fixtures = `
     INSERT INTO auth.users VALUES ('${admin}'),('${member}'),('${outsider}');
     INSERT INTO profiles (user_id,display_name) VALUES ('${admin}','Admin A'),('${member}','Member A'),('${outsider}','Member B');
@@ -44,6 +45,20 @@ beforeAll(async () => {
 afterAll(async () => { if (database) await database.stop(); }, 60_000);
 
 describe("Modelagem e isolamento em Postgres local", () => {
+  it("spec003_test_ca_04_ca_07_image_url_opcional_preserva_linhas_e_isolamento", async () => {
+    const result = await query(`BEGIN;
+      SELECT 'existing_null:'||count(*) FROM equipment WHERE image_url IS NULL;
+      UPDATE equipment SET image_url='https://example.invalid/equipamentos/ti-0001.jpg' WHERE id='${equipment(1)}';
+      UPDATE equipment SET image_url='https://example.invalid/equipamentos/outro-tenant.jpg' WHERE id='${equipment(7)}';
+      SET LOCAL ROLE authenticated; SELECT set_config('request.jwt.claim.sub','${member}',true);
+      SELECT 'own_image:'||image_url FROM equipment WHERE id='${equipment(1)}';
+      SELECT 'foreign_image:'||count(*) FROM equipment WHERE id='${equipment(7)}';
+      ROLLBACK;`);
+    expect(result.exitCode, result.stderr).toBe(0);
+    expect(result.stdout).toContain("existing_null:7");
+    expect(result.stdout).toContain("own_image:https://example.invalid/equipamentos/ti-0001.jpg");
+    expect(result.stdout).toContain("foreign_image:0");
+  });
   it("test_ca_02_todas_as_tabelas_de_dominio_tem_rls_e_policy", async () => {
     const result = await query(`SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relkind='r' AND c.relrowsecurity AND EXISTS(SELECT 1 FROM pg_policy p WHERE p.polrelid=c.oid);`);
     expect(result.stdout.trim()).toBe("8");

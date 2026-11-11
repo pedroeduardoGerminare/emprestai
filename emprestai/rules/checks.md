@@ -11,10 +11,12 @@ alwaysApply: true
 Sempre que você for dizer "pronto", "implementado" ou "funcionando".
 
 ## Procedimento
-1. Rode `npx vitest run`. Cole a última linha da saída na resposta.
-2. Se a tarefa tocou em migration, rode `supabase db reset` local e
-   confirme que o banco sobe do zero com todas as migrations.
-3. Rode `npx next build` antes de qualquer push. Build que quebra na
+1. Rode `npm.cmd test` dentro da aplicação. Registre o resumo real.
+2. Se a tarefa tocou em migration, o principal valida reset pelo Prisma
+   somente com URLs explicitamente locais. Supabase CLI não gerencia migrations.
+   O verificador nunca executa reset/migration; usa os testes Testcontainers,
+   que criam Postgres descartável sem ler DATABASE_URL.
+3. Rode `npm.cmd run typecheck` e `npm.cmd run build` antes de qualquer push. Build que quebra na
    Vercel é o feedback mais lento e mais caro deste projeto.
 4. Rode `git status --short`. Só podem aparecer arquivos do escopo
    da tarefa.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
+import { ApiProvider } from "@/lib/trpc";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   await headers();
   return (
     <html lang="pt-BR" className={openSans.variable}>
-      <body>{children}</body>
+      <body><ApiProvider>{children}</ApiProvider></body>
     </html>
   );
 }
