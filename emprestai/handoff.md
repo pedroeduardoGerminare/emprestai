@@ -9,18 +9,19 @@
 - Equipe pessoal pedroeduardonascimento17-4822, team_74NgBU6KrPcleHTIlKbdlSue. Deploy inicial login antigo READY pela UI.
 - Domínio antigo deixou de ser exigido; não apagar projeto anterior.
 - MCP Vercel confirma usuário pessoal pedroeduardonascimento17@gmail.com; dashboard mostra o projeto. A API MCP ainda lista projetos vazios.
-- Preview da branch codex/aula11-pratica-subagentes ficou bloqueado: commits anteriores usam email não associado ao GitHub conectado. Próximo commit usará o endereço GitHub noreply verificado para o login pedroeduardoGerminare, sem expor email pessoal.
+- Preview da branch codex/aula11-pratica-subagentes ficou READY depois do commit 7c66d68, assinado com endereço GitHub noreply. O domínio principal permanece emprestai-five.vercel.app.
 - Vercel nova: https://vercel.com/pedroeduardonascimento17-4822/emprestai . Deploy atual é a versão da main/login inicial.
 - Supabase institucional autenticado; organização ProjetosVibeCoding e projeto zvemdkmoagksupyyosuk confirmados no dashboard.
-- Supabase estava pausado. Retomada iniciada; status mais recente “Coming up...”/restauração em andamento. Nenhuma migration, seed, upload ou usuário executado remotamente.
+- Supabase zvemdkmoagksupyyosuk está Healthy novamente. Última migration visível: prisma_history_baseline. Nenhuma migration, seed, upload ou usuário executado remotamente.
+- Vercel tem SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY (chave pública, não service role) nos ambientes Preview e Production. Falta DATABASE_URL privada do Postgres para execução das rotas; conexão exibida pelo Supabase exige a senha definida pelo usuário.
 - Pixabay chave local ignorada e autenticada; nunca enviar ao deploy/Git.
 - Fotos8 aprovadas/4 bloqueadas TI0003/7/11/12. Usuário manteve exigência sem marcas/texto.
 - Evidências docs/evidencias/revisao-imagens.md; candidatos/cache em .image-work/equipamentos ignorado.
 - Não rodar prepare com review parcial nem fingir12 fotos prontas.
 - Decisões:3itens/14dias corridos,TI0010 manutenção,sharp e image_url aprovados,Balcão Operações.
 - scripts/provision-pratica.mjs reservado à execução humana; valida alvo+manifesto antes de escrever.
-- Tentativa suplementar de busca Pixabay falhou por DNS local; não alterou a seleção. Faltam 4 fotos sem marca/texto.
-- Faltam env runtime Vercel, migration/upload/seed/Auth humanos, conta professor e E2E publicado.
+- Buscas suplementares Pixabay e inspeção visual não encontraram candidatas que passem os critérios para TI0003, TI0007, TI0011 e TI0012. Faltam 4 fotos sem marca/texto.
+- Faltam DATABASE_URL privada no Vercel, migration/upload/seed/Auth humanos, conta professor e E2E publicado.
 - PR rascunho: https://github.com/pedroeduardoGerminare/emprestai/pull/1 . Checklists comprovados atualizados nos commits8c1a928,5edb2c6; ENTREGA atualizada em fdec13b.
 - ENTREGA.md parcial; não criar tag entrega-pratica nem declarar specs PRONTAS.
-- Próximo passo: aguardar Supabase ativo, seguir com busca aprovada de fotos quando rede permitir e preparar execução humana; não declarar entrega concluída antes das pendências.
+- Próximo passo: usuário precisa fornecer a senha do banco apenas em canal de configuração seguro/local e executar `scripts/provision-pratica.mjs` conforme o contrato humano; depois criar/confirmar conta professor, concluir conjunto de fotos aprovado e repetir E2E. Não declarar specs PRONTAS antes das evidências.

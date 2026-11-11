@@ -2,11 +2,11 @@
 
 ## Estado atualizado — 11/nov/2026
 
-Nova publicação autorizada: https://emprestai-five.vercel.app, equipe pessoal pedroeduardonascimento17-4822, GitHub conectado. Produção ainda é login inicial da main; funcionalidades reais estão na branch codex/aula11-pratica-subagentes. O preview da branch foi bloqueado porque o email autor dos commits anteriores não está associado ao GitHub conectado. Vercel MCP confirma a conta correta, mas ainda não lista o projeto pela API. Supabase zvemdkmoagksupyyosuk está ativo novamente. Nenhuma migration, seed, upload ou usuário remoto foi escrito.
+Nova publicação autorizada: https://emprestai-five.vercel.app, equipe pessoal pedroeduardonascimento17-4822, GitHub conectado. Produção continua no código da main/login inicial; funcionalidades reais estão na branch codex/aula11-pratica-subagentes e PR rascunho #1. Preview branch ficou READY após corrigir o email do autor para o noreply GitHub. O domínio principal permanece o mesmo. Vercel MCP confirma a conta correta, mas ainda não lista o projeto pela API. Supabase zvemdkmoagksupyyosuk está Healthy. Vercel recebeu SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY nos ambientes Preview e Production; DATABASE_URL privada ainda falta. Nenhuma migration, seed, upload ou usuário remoto foi escrito.
 
 Implementação local: Auth SSR/tRPC, catálogo, solicitar e meus empréstimos, migration imagem e seed idempotente. Última suíte60 testes/10 arquivos passou; build Webpack completo com TypeScript passou após correções da revisão. Detalhes docs/verificacao-pratica.md. Sharp e DDL aprovados; TI0010 manutenção; retirada Balcão de Operações conforme spec001.
 
-Fotos8 aprovadas/4 bloqueadas; usuário manteve restrições. Conta professor,12 fotos, provisionamento humano, ambiente runtime Vercel, validação ponta a ponta e tag final pendentes. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
+Fotos 8 aprovadas/4 bloqueadas após novas buscas e inspeção visual; usuário manteve restrições. Conta professor, 12 fotos, provisionamento humano, DATABASE_URL no Vercel, validação ponta a ponta e tag final pendentes. O restante deste documento preserva o histórico, subordinado a este estado atualizado.
 
 ## Links
 - Repositório: https://github.com/pedroeduardoGerminare/emprestai
@@ -59,4 +59,4 @@ checks.md mandava supabase db reset, embora o ADR atribua schema ao Prisma. Foi 
 
 ## 8. Pendências
 
-Implementação local, testes Postgres descartáveis e build concluídos. Não está PRONTA: faltam quatro fotos compatíveis, provisionamento humano de Auth/Storage/dados, conta professor, variáveis da Vercel, fluxo autenticado publicado e revisão final. Supabase foi encontrado pausado; restauração em andamento. Não criar tag final até validar essas evidências. Detalhes em `emprestai/docs/verificacao-pratica.md` e `emprestai/handoff.md`.
+Implementação local, testes Postgres descartáveis e build concluídos. Não está PRONTA: faltam quatro fotos compatíveis, provisionamento humano de Auth/Storage/dados, conta professor, DATABASE_URL privada no Vercel, fluxo autenticado publicado e revisão final. Supabase está Healthy. As variáveis públicas SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY estão definidas nos ambientes Preview e Production. Não criar tag final até validar essas evidências. Detalhes em `emprestai/docs/verificacao-pratica.md` e `emprestai/handoff.md`.
