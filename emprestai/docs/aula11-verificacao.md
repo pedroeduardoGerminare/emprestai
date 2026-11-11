@@ -29,4 +29,10 @@ O pedido do tech lead para o verificador corrigir teste é incompatível com a i
 
 A definição TOML não garante redução de permissões por agente nesta conversa. Conforme documentação oficial consultada em 11/nov/2026, configurações de sandbox no papel não substituem a configuração herdada: https://learn.chatgpt.com/docs/agent-configuration/subagents . A instrução de somente leitura é contratual. Segurança técnica de produção não deve ser declarada comprovada sem sessão isolada sem credenciais/conectores de escrita.
 
-Build e typecheck locais passaram. Primeiras tentativas tiveram EPERM nos caches existentes; build passou após execução autorizada com acesso aos arquivos. Suíte completa ainda pendente de resultado.
+## Prova 3 — erro plantado e restauração
+
+Commit cdd5dea comentou integralmente o teste de ausência de envio de credenciais. Em contexto limpo, o verificador marcou CA-01 SEM TESTE e NÃO PRONTA: a asserção comentada não executava. O principal restaurou o teste no commit 43837f1. A implementação não foi corrigida pelo verificador.
+
+Build e typecheck locais passaram. Primeiras tentativas tiveram EPERM nos caches existentes; build passou após execução autorizada com acesso aos arquivos. Primeira suíte: 19 passed, 9 skipped por timeout do auxiliar Docker. Diagnóstico com TESTCONTAINERS_RYUK_DISABLED=true permitiu executar o Postgres descartável. Após restaurar o teste: Test Files 4 passed (4), Tests 28 passed (28), 19.62s. Nenhum banco remoto foi usado. Essa variável é contorno local da execução; não é alteração de regra de negócio nem prova de produção.
+
+Adaptação TOML desabilita apps/plugins e pedidos de elevação com chaves features suportadas. Isso reduz conectores no papel persistido, mas os agentes desta conversa foram chamados com instrução explícita de somente leitura; não se presume que o spawn aplicou automaticamente o TOML.

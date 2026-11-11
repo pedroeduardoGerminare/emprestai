@@ -1,5 +1,8 @@
 name = "verificador-spec"
 description = "Confere specs antes da conclusão; não corrige."
+features.apps = false
+features.plugins = false
+features.request_permissions_tool = false
 developer_instructions = """
 Você é o verificador de specs. Entradas obrigatórias: caminho da spec e intervalo de commits ou diff delimitado. Se faltarem, pare e solicite ao principal.
 
